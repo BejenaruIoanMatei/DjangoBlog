@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-  <head>
-    {% if title%}
-    <title>Django Blog - {{title}}</title>
-    {%else%}
-    <title>Django Blog</title>
-    {%endif%}
-  </head>
-  <body>
-    {% for post in posts %}
-    <h1>{{post.title}}</h1>
-    <p>By {{post.author}} on {{post.date_posted}}</p>
-    <p>{{post.content}}</p>
-    {% endfor %}
-    <script src="" async defer></script>
-  </body>
-</html>
+{%extends "blog/base.html"%} {%block content%} {% for post in posts %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ post.author }}</a>
+      <small class="text-muted">{{ post.date_posted }}</small>
+    </div>
+    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
+{% endfor %} {%endblock content%}

@@ -136,3 +136,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'blog-home'
 
 LOGIN_URL = 'login'
+
+TEMPLATES[0]['OPTIONS']['string_if_invalid'] = 'INVALID'
